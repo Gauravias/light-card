@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card design</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  font-family: 'Rubik', sans-serif;
+  color: #fcfcfc;
+  background: linear-gradient(#000002, #01032a);
+}
+ol.cards{
+  display: grid;
+  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  list-style: none;
+  counter-reset: card;
+}
+[neon-card]{
+  display:grid;
+  gap: 1rem;
+  grid-template: 't' max-content 'b';
+  counter-increment: card;
+  cursor: default;
+}
+[neon-card]:nth-child(3n-2){--neon1: #d50f14; --neon2: #0f31f2}
+[neon-card]:nth-child(3n-1){--neon1: #d5f91b; --neon2: #29ecf9}
+[neon-card]:nth-child(3n){--neon1: #aa36f8; --neon2: #ea086d}
+
+[neon-card] * { padding-inline: 2rem}
+[neon-card] *:first-child{ padding-block-start: 6rem; }
+[neon-card] *:last-child{ padding-block-end: 2rem; }
+
+[neon-card] [title]{
+  grid-area: t;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+[neon-card] [body]{
+  grid-area: b;
+  font-weight: 300;
+  line-height: 1.25
+}
+
+[neon-card]::before,
+[neon-card]::after{
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  z-index: -1;
+}
+[neon-card]::before{
+  content: '';
+  background-image: linear-gradient(to bottom right, var(--neon1), var(--neon2));
+  transform: scale(var(--scale, 1)) skew(2.5deg, 2.5deg);
+  filter: blur(2px);
+  transition: transform 125ms ease;
+}
+[neon-card]:hover::before{
+  --scale: 1.015;
+}
+[neon-card]::after{
+  content: counter(card);
+  text-align: center;
+  font-size: 10rem;
+  line-height: 1;
+  color: rgba(255,255,255,.125);
+  background: linear-gradient(to bottom right,#12192c 50%,#040a20 0);
+}
+    </style>
+</head>
+<body>
+    <ol class="cards">
+        <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+        <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+         <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+         <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+         <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+         <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+        <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+        <li neon-card>
+          <div title>Lorem Ipsum</div>
+          <div body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quam diam, pulvinar eu nibh eget, commodo viverra massa. Cras a nisl varius, hendrerit sem nec, fermentum est. 
+          </div>
+        </li>
+      </ol>
+</body>
+</html>
